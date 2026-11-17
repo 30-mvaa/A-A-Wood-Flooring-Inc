@@ -84,6 +84,18 @@ npm run preview
 
 ---
 
+## ✉️ Estimate Form Delivery
+
+The quote form posts to [Formspree](https://formspree.io). Create a form there, then set its ID in `.env.local` (see `.env.example`) or in your hosting provider's environment variables:
+
+```bash
+VITE_FORMSPREE_ID=yourFormId
+```
+
+Without it, submitting the form opens the visitor's email client pre-filled to `aawoodflooring22@gmail.com`.
+
+---
+
 ## 📁 Directory Structure
 
 ```

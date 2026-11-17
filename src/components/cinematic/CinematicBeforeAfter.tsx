@@ -36,7 +36,7 @@ export const CinematicBeforeAfter: React.FC = () => {
     <section id="before-after" className="py-24 bg-[#0B0B0E] border-t border-white/5 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-black/60 border border-[#E5A93C]/40 text-[#E5A93C] text-[11px] font-mono tracking-wider uppercase mb-2">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-black/60 border border-[#C92227]/40 text-[#C92227] text-[11px] font-mono tracking-wider uppercase mb-2">
             <Sliders className="w-3.5 h-3.5" />
             <span>03 // OPTICAL COMPARISON MATRIX</span>
           </div>
@@ -60,11 +60,13 @@ export const CinematicBeforeAfter: React.FC = () => {
         >
           {/* AFTER Image */}
           <img
+            loading="lazy"
+            decoding="async"
             src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=1600&q=85"
             alt="After Refinishing - A&A Wood Flooring"
             className="absolute inset-0 w-full h-full object-cover filter contrast-[1.1]"
           />
-          <div className="absolute top-4 right-4 bg-black/85 backdrop-blur-md text-[#E5A93C] text-xs font-mono font-bold px-3.5 py-1.5 rounded-lg border border-[#E5A93C]/40 uppercase tracking-widest shadow-lg">
+          <div className="absolute top-4 right-4 bg-black/85 backdrop-blur-md text-[#C92227] text-xs font-mono font-bold px-3.5 py-1.5 rounded-lg border border-[#C92227]/40 uppercase tracking-widest shadow-lg">
             AFTER: Sanded, Stained & Sealed
           </div>
 
@@ -74,6 +76,8 @@ export const CinematicBeforeAfter: React.FC = () => {
             style={{ width: `${sliderPosition}%` }}
           >
             <img
+              loading="lazy"
+              decoding="async"
               src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=85"
               alt="Before Refinishing - A&A Wood Flooring"
               className="absolute inset-y-0 left-0 w-full h-full object-cover filter contrast-75 brightness-75 sepia-[0.3]"
@@ -89,10 +93,10 @@ export const CinematicBeforeAfter: React.FC = () => {
 
           {/* Golden Handle */}
           <div
-            className="absolute inset-y-0 w-1 bg-[#E5A93C] shadow-[0_0_15px_#E5A93C] z-20 pointer-events-none"
+            className="absolute inset-y-0 w-1 bg-[#C92227] shadow-[0_0_15px_#C92227] z-20 pointer-events-none"
             style={{ left: `${sliderPosition}%` }}
           >
-            <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-[#E5A93C] shadow-[0_0_20px_rgba(229,169,60,0.6)] border-2 border-black flex items-center justify-center text-black">
+            <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-[#C92227] shadow-[0_0_20px_rgba(201,34,39,0.6)] border-2 border-black flex items-center justify-center text-white">
               <div className="flex items-center space-x-1 font-bold">
                 <span className="w-1.5 h-1.5 border-l-2 border-b-2 border-black rotate-45 transform" />
                 <span className="w-1.5 h-1.5 border-r-2 border-t-2 border-black rotate-45 transform" />

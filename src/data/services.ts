@@ -34,7 +34,7 @@ export const servicesData: ServiceItem[] = [
     category: 'Architectural Patterns',
     description: 'Make an unforgettable statement with chevron, herringbone, basketweave, and custom medallion inlays installed with mathematical precision and master joinery.',
     detailedDescription: 'Parquet and herringbone patterns require an artist’s eye and an engineer’s rigor. Every plank must intersect at an exact 90° or 45° angle with zero drift. A&A Wood Flooring specializes in complex geometric layouts, walnut borders, brass inlays, and feature medallions that transform ordinary rooms into breathtaking architectural centerpieces.',
-    image: '/images/hero-herringbone.png',
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=85',
     features: [
       'Classic French Herringbone & Contemporary Chevron',
       'Custom Border Inlays (Walnut, Wenge, Maple & Brass)',
@@ -111,7 +111,7 @@ export const servicesData: ServiceItem[] = [
     category: 'Repair & Restoration',
     description: 'Expert correction of water damage, squeaking joists, cracked boards, and pet damage. We seamlessly weave replacement planks to match your existing floor perfectly.',
     detailedDescription: 'Damaged flooring does not mean you have to re-floor your whole home. Our master craftsmen excel at surgical board repairs. We source identical wood species, grain patterns, and age-appropriate timber, feathering replacement planks into your current floor so the repair is completely invisible.',
-    image: 'https://images.unsplash.com/photo-1533779283484-8da7979bc658?auto=format&fit=crop&w=1200&q=85',
+    image: 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=1200&q=85',
     features: [
       'Surgical Board Weaving & Blind Nailing Techniques',
       'Subfloor Squeak & Flex Correction',
@@ -161,7 +161,7 @@ export const servicesData: ServiceItem[] = [
     category: 'Finishing & Design',
     description: 'Transform the character of your space with bespoke wood stains. From rich dark espresso and weathered driftwood gray to natural Scandinavian matte finishes.',
     detailedDescription: 'Color defines the atmosphere of your home. A&A Wood Flooring works with leading stain brands like DuraSeal and Bona to create custom hand-mixed formulas. We prepare real on-site sample swatches directly on your sanded floor so you can see how different tones react with your specific wood grain and room lighting before making a decision.',
-    image: 'https://images.unsplash.com/photo-1502005229762-ee1b2b8ab98f?auto=format&fit=crop&w=1200&q=85',
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=85',
     features: [
       'Direct On-Floor Sample Swatches in Your Home\'s Real Lighting',
       'Classic Stains: Provincial, Jacobean, Special Walnut, Dark Walnut, Ebony',

@@ -38,6 +38,8 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({
         {/* Header Image */}
         <div className="relative h-64 sm:h-72 w-full flex-shrink-0">
           <img
+            loading="lazy"
+            decoding="async"
             src={service.image}
             alt={service.title}
             className="w-full h-full object-cover"
