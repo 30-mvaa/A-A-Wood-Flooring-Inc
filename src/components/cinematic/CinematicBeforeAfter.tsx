@@ -14,22 +14,21 @@ export const CinematicBeforeAfter: React.FC = () => {
     setSliderPosition(percentage);
   }, []);
 
-  const handleTouchMove = (e: React.TouchEvent) => {
-    handleMove(e.touches[0].clientX);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (isDragging.current) {
-      handleMove(e.clientX);
-    }
-  };
-
-  const handleMouseDown = () => {
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     isDragging.current = true;
+    e.currentTarget.setPointerCapture(e.pointerId);
+    handleMove(e.clientX);
   };
 
-  const handleMouseUp = () => {
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (isDragging.current) handleMove(e.clientX);
+  };
+
+  const handlePointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
     isDragging.current = false;
+    if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+      e.currentTarget.releasePointerCapture(e.pointerId);
+    }
   };
 
   return (
@@ -51,17 +50,17 @@ export const CinematicBeforeAfter: React.FC = () => {
         {/* Cinematic Comparison Frame */}
         <div
           ref={containerRef}
-          onMouseMove={handleMouseMove}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
-          onTouchMove={handleTouchMove}
-          className="relative max-w-5xl mx-auto aspect-[16/9] sm:aspect-[21/10] rounded-3xl overflow-hidden shadow-2xl border border-white/10 select-none cursor-ew-resize bg-black"
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerUp}
+          className="relative max-w-5xl mx-auto aspect-[16/9] sm:aspect-[21/10] rounded-3xl overflow-hidden shadow-2xl border border-white/10 select-none touch-pan-y cursor-ew-resize bg-black"
         >
           {/* AFTER Image */}
           <img
             loading="lazy"
             decoding="async"
+            draggable={false}
             src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=1600&q=85"
             alt="After Refinishing - A&A Wood Flooring"
             className="absolute inset-0 w-full h-full object-cover filter contrast-[1.1]"
@@ -78,6 +77,7 @@ export const CinematicBeforeAfter: React.FC = () => {
             <img
               loading="lazy"
               decoding="async"
+            draggable={false}
               src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=85"
               alt="Before Refinishing - A&A Wood Flooring"
               className="absolute inset-y-0 left-0 w-full h-full object-cover filter contrast-75 brightness-75 sepia-[0.3]"

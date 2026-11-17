@@ -30,7 +30,7 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({
   if (!service) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 lg:p-8 animate-fadeIn">
+    <div className="fixed inset-0 z-[60] overflow-y-auto bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 lg:p-8 animate-fadeIn">
       <div 
         className="relative bg-white rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl border border-gray-100 max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}

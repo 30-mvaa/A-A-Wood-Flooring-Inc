@@ -42,7 +42,7 @@ export const Lightbox: React.FC<LightboxProps> = ({ item, items, onClose, onSele
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col justify-between p-4 sm:p-6 animate-fadeIn">
+    <div className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-md flex flex-col justify-between p-4 sm:p-6 animate-fadeIn">
       {/* Top Bar */}
       <div className="flex items-center justify-between text-white max-w-7xl w-full mx-auto pb-4">
         <div>
