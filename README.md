@@ -98,8 +98,7 @@ sitio-web-aawood-floring/
 │   ├── sitemap.xml              # XML Sitemap
 │   └── images/
 │       ├── logo.png             # Authentic logo with transparent background
-│       ├── flyer.png            # Original authentic marketing flyer
-│       └── hero-herringbone.png # High-res herringbone wood floor photography
+│       └── flyer.png            # Original authentic marketing flyer
 └── src/
     ├── App.tsx                  # Main application orchestrator
     ├── main.tsx                 # React entry point
