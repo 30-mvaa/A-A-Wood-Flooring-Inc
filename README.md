@@ -110,7 +110,6 @@ sitio-web-aawood-floring/
 │   ├── sitemap.xml              # XML Sitemap
 │   └── images/
 │       ├── logo.png             # Authentic logo with transparent background
-│       ├── logo-original.png    # Original cropped logo
 │       └── flyer.png            # Original authentic marketing flyer
 └── src/
     ├── App.tsx                  # Main application orchestrator

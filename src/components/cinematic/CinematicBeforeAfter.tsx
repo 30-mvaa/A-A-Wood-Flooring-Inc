@@ -60,6 +60,8 @@ export const CinematicBeforeAfter: React.FC = () => {
         >
           {/* AFTER Image */}
           <img
+            loading="lazy"
+            decoding="async"
             src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=1600&q=85"
             alt="After Refinishing - A&A Wood Flooring"
             className="absolute inset-0 w-full h-full object-cover filter contrast-[1.1]"
@@ -74,6 +76,8 @@ export const CinematicBeforeAfter: React.FC = () => {
             style={{ width: `${sliderPosition}%` }}
           >
             <img
+              loading="lazy"
+              decoding="async"
               src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=85"
               alt="Before Refinishing - A&A Wood Flooring"
               className="absolute inset-y-0 left-0 w-full h-full object-cover filter contrast-75 brightness-75 sepia-[0.3]"

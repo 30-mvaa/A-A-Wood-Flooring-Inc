@@ -21,7 +21,9 @@ export const CinematicAbout: React.FC<CinematicAboutProps> = ({ onOpenQuote }) =
           <div className="lg:col-span-5 relative">
             <div className="rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-[#121217] p-2">
               <img
-                src="/images/flyer.png"
+                loading="lazy"
+                decoding="async"
+                src="/images/flyer.webp"
                 alt="A&A Wood Flooring Official Flyer"
                 className="w-full h-auto object-cover rounded-2xl"
               />
