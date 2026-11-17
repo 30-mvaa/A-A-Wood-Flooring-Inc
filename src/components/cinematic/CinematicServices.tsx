@@ -50,8 +50,8 @@ export const CinematicServices: React.FC<CinematicServicesProps> = ({
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 pb-8 border-b border-white/10 gap-6">
           <div>
-            <div className="flex items-center space-x-2 text-xs font-mono text-[#E5A93C] uppercase tracking-widest mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E5A93C]" />
+            <div className="flex items-center space-x-2 text-xs font-mono text-[#C92227] uppercase tracking-widest mb-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C92227]" />
               <span>01 // SPECIALIZED DISCIPLINES</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
@@ -70,7 +70,7 @@ export const CinematicServices: React.FC<CinematicServicesProps> = ({
                 onClick={() => setActiveCategory(cat.id)}
                 className={`px-4 py-2 rounded-lg text-xs font-mono tracking-wider transition-all duration-200 ${
                   activeCategory === cat.id
-                    ? 'bg-[#E5A93C] text-black font-black shadow-[0_0_15px_rgba(229,169,60,0.3)]'
+                    ? 'bg-[#C92227] text-white font-black shadow-[0_0_15px_rgba(201,34,39,0.3)]'
                     : 'bg-white/5 text-gray-300 hover:text-white hover:bg-white/10 border border-white/10'
                 }`}
               >
@@ -85,7 +85,7 @@ export const CinematicServices: React.FC<CinematicServicesProps> = ({
           {filteredServices.map((service, idx) => (
             <div
               key={service.id}
-              className="group bg-[#121217] rounded-2xl overflow-hidden border border-white/10 hover:border-[#E5A93C]/50 shadow-card-dark transition-all duration-300 flex flex-col justify-between hover:-translate-y-1"
+              className="group bg-[#121217] rounded-2xl overflow-hidden border border-white/10 hover:border-[#C92227]/50 shadow-card-dark transition-all duration-300 flex flex-col justify-between hover:-translate-y-1"
             >
               <div>
                 {/* Image Section */}
@@ -104,13 +104,13 @@ export const CinematicServices: React.FC<CinematicServicesProps> = ({
                   </div>
 
                   {service.popular && (
-                    <div className="absolute top-3 right-3 px-2 py-0.5 rounded bg-[#E5A93C] text-black text-[10px] font-bold uppercase tracking-wider font-mono shadow">
+                    <div className="absolute top-3 right-3 px-2 py-0.5 rounded bg-[#C92227] text-white text-[10px] font-bold uppercase tracking-wider font-mono shadow">
                       FEATURED
                     </div>
                   )}
 
                   <div className="absolute bottom-2.5 left-4 right-4">
-                    <span className="text-[10px] font-mono text-[#E5A93C] uppercase tracking-widest block mb-0.5">
+                    <span className="text-[10px] font-mono text-[#C92227] uppercase tracking-widest block mb-0.5">
                       {service.category}
                     </span>
                     <h3 className="text-lg font-bold text-white leading-snug">
@@ -128,7 +128,7 @@ export const CinematicServices: React.FC<CinematicServicesProps> = ({
                   <div className="space-y-1.5 pt-3 border-t border-white/5 text-[11px] text-gray-300">
                     {service.features.slice(0, 2).map((feat, fIdx) => (
                       <div key={fIdx} className="flex items-center space-x-2 truncate">
-                        <Check className="w-3.5 h-3.5 text-[#E5A93C] flex-shrink-0" />
+                        <Check className="w-3.5 h-3.5 text-[#C92227] flex-shrink-0" />
                         <span className="truncate">{feat}</span>
                       </div>
                     ))}
@@ -140,15 +140,15 @@ export const CinematicServices: React.FC<CinematicServicesProps> = ({
               <div className="p-4 bg-black/40 border-t border-white/5 flex items-center justify-between">
                 <button
                   onClick={() => setSelectedService(service)}
-                  className="inline-flex items-center space-x-1 text-xs font-mono font-bold text-gray-300 hover:text-[#E5A93C] transition-colors"
+                  className="inline-flex items-center space-x-1 text-xs font-mono font-bold text-gray-300 hover:text-[#C92227] transition-colors"
                 >
-                  <Eye className="w-3.5 h-3.5 text-[#E5A93C]" />
+                  <Eye className="w-3.5 h-3.5 text-[#C92227]" />
                   <span>SPECS & DETAILS</span>
                 </button>
 
                 <button
                   onClick={() => onSelectServiceForQuote(service.title)}
-                  className="px-3 py-1.5 rounded-lg text-xs font-mono font-bold text-black bg-[#E5A93C] hover:bg-[#F3C978] transition-colors"
+                  className="px-3 py-1.5 rounded-lg text-xs font-mono font-bold text-white bg-[#C92227] hover:bg-[#E52228] transition-colors"
                 >
                   QUOTE
                 </button>

@@ -6,7 +6,7 @@ export const galleryData: GalleryItem[] = [
     title: 'Custom Herringbone Luxury Living Space',
     category: 'herringbone',
     categoryLabel: 'Herringbone & Custom',
-    image: '/images/hero-herringbone.png',
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=85',
     location: 'Westchester County, NY',
     woodType: 'Select White Oak',
     finish: 'Natural Matte Polyurethane'
@@ -46,7 +46,7 @@ export const galleryData: GalleryItem[] = [
     title: 'Seamless Water Damage Board Weaving & Color Match',
     category: 'repairs',
     categoryLabel: 'Precision Repairs',
-    image: 'https://images.unsplash.com/photo-1533779283484-8da7979bc658?auto=format&fit=crop&w=1200&q=85',
+    image: 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=1200&q=85',
     location: 'Stamford, CT',
     woodType: 'Heart Pine & Red Oak',
     finish: 'Hand-Blended Amber Sheen'
@@ -56,7 +56,7 @@ export const galleryData: GalleryItem[] = [
     title: 'Nordic Scandinavian Natural Oak Installation',
     category: 'hardwood',
     categoryLabel: 'Hardwood Flooring',
-    image: 'https://images.unsplash.com/photo-1502005229762-ee1b2b8ab98f?auto=format&fit=crop&w=1200&q=85',
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=85',
     location: 'Manhattan, NY',
     woodType: 'White Oak Engineered',
     finish: 'Nordic Natural Raw Seal'

@@ -45,7 +45,7 @@ export const CinematicCoverage: React.FC = () => {
     <section className="py-24 bg-[#0B0B0E] border-t border-white/5 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-black/60 border border-[#E5A93C]/40 text-[#E5A93C] text-[11px] font-mono tracking-wider uppercase mb-2">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-black/60 border border-[#C92227]/40 text-[#C92227] text-[11px] font-mono tracking-wider uppercase mb-2">
             <MapPin className="w-3.5 h-3.5" />
             <span>09 // TRI-STATE COVERAGE</span>
           </div>
@@ -61,15 +61,15 @@ export const CinematicCoverage: React.FC = () => {
           {regions.map((region, idx) => (
             <div
               key={idx}
-              className="p-7 rounded-2xl bg-[#121217] border border-white/10 hover:border-[#E5A93C]/40 shadow-card-dark transition-all duration-300 flex flex-col justify-between"
+              className="p-7 rounded-2xl bg-[#121217] border border-white/10 hover:border-[#C92227]/40 shadow-card-dark transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
                   <h3 className="text-xl font-black text-white font-mono flex items-center space-x-2">
-                    <MapPin className="w-4 h-4 text-[#E5A93C]" />
+                    <MapPin className="w-4 h-4 text-[#C92227]" />
                     <span>{region.state}</span>
                   </h3>
-                  <span className="text-[10px] font-mono font-bold text-[#E5A93C] bg-[#E5A93C]/10 border border-[#E5A93C]/30 px-2 py-0.5 rounded">
+                  <span className="text-[10px] font-mono font-bold text-[#C92227] bg-[#C92227]/10 border border-[#C92227]/30 px-2 py-0.5 rounded">
                     {region.badge}
                   </span>
                 </div>
@@ -77,7 +77,7 @@ export const CinematicCoverage: React.FC = () => {
                 <div className="space-y-2 mt-4 text-xs font-mono text-gray-300">
                   {region.areas.map((area, aIdx) => (
                     <div key={aIdx} className="flex items-center space-x-2.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#E5A93C] flex-shrink-0" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#C92227] flex-shrink-0" />
                       <span>{area}</span>
                     </div>
                   ))}

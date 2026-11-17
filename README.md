@@ -84,6 +84,18 @@ npm run preview
 
 ---
 
+## ✉️ Estimate Form Delivery
+
+The quote form posts to [Formspree](https://formspree.io). Create a form there, then set its ID in `.env.local` (see `.env.example`) or in your hosting provider's environment variables:
+
+```bash
+VITE_FORMSPREE_ID=yourFormId
+```
+
+Without it, submitting the form opens the visitor's email client pre-filled to `aawoodflooring22@gmail.com`.
+
+---
+
 ## 📁 Directory Structure
 
 ```
@@ -99,8 +111,7 @@ sitio-web-aawood-floring/
 │   └── images/
 │       ├── logo.png             # Authentic logo with transparent background
 │       ├── logo-original.png    # Original cropped logo
-│       ├── flyer.png            # Original authentic marketing flyer
-│       └── hero-herringbone.png # High-res herringbone wood floor photography
+│       └── flyer.png            # Original authentic marketing flyer
 └── src/
     ├── App.tsx                  # Main application orchestrator
     ├── main.tsx                 # React entry point

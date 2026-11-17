@@ -22,7 +22,7 @@ export const CinematicFooter: React.FC = () => {
                 <span className="font-black text-sm tracking-widest uppercase text-white block">
                   A&A WOOD FLOORS
                 </span>
-                <span className="text-[10px] font-bold tracking-widest text-[#E5A93C] uppercase block">
+                <span className="text-[10px] font-bold tracking-widest text-[#C92227] uppercase block">
                   QUALITY • DESIGN • DURABILITY
                 </span>
               </div>
@@ -37,7 +37,7 @@ export const CinematicFooter: React.FC = () => {
                 href="https://www.instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/5 hover:bg-[#E5A93C] hover:text-black text-gray-300 flex items-center justify-center transition-colors border border-white/10"
+                className="w-9 h-9 rounded-lg bg-white/5 hover:bg-[#C92227] hover:text-white text-gray-300 flex items-center justify-center transition-colors border border-white/10"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -48,7 +48,7 @@ export const CinematicFooter: React.FC = () => {
                 href="https://www.facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/5 hover:bg-[#E5A93C] hover:text-black text-gray-300 flex items-center justify-center transition-colors border border-white/10"
+                className="w-9 h-9 rounded-lg bg-white/5 hover:bg-[#C92227] hover:text-white text-gray-300 flex items-center justify-center transition-colors border border-white/10"
                 aria-label="Facebook"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -60,7 +60,7 @@ export const CinematicFooter: React.FC = () => {
 
           {/* Column 2: Navigation */}
           <div className="space-y-3 font-mono text-xs">
-            <h4 className="font-bold uppercase tracking-widest text-[#E5A93C]">Navigation</h4>
+            <h4 className="font-bold uppercase tracking-widest text-[#C92227]">Navigation</h4>
             <ul className="space-y-2 text-gray-400">
               <li><a href="#home" className="hover:text-white transition-colors">Home Base</a></li>
               <li><a href="#services" className="hover:text-white transition-colors">Services Portfolio</a></li>
@@ -74,7 +74,7 @@ export const CinematicFooter: React.FC = () => {
 
           {/* Column 3: Specialties */}
           <div className="space-y-3 font-mono text-xs">
-            <h4 className="font-bold uppercase tracking-widest text-[#E5A93C]">Specialties</h4>
+            <h4 className="font-bold uppercase tracking-widest text-[#C92227]">Specialties</h4>
             <ul className="space-y-2 text-gray-400">
               <li><a href="#services" className="hover:text-white transition-colors">Hardwood Installation</a></li>
               <li><a href="#services" className="hover:text-white transition-colors">Herringbone Inlays</a></li>
@@ -88,27 +88,27 @@ export const CinematicFooter: React.FC = () => {
 
           {/* Column 4: Contact & Coverage */}
           <div className="space-y-3 font-mono text-xs">
-            <h4 className="font-bold uppercase tracking-widest text-[#E5A93C]">Dispatch & Hours</h4>
+            <h4 className="font-bold uppercase tracking-widest text-[#C92227]">Dispatch & Hours</h4>
             <ul className="space-y-2.5 text-gray-400">
               <li className="flex items-start space-x-2">
-                <Phone className="w-3.5 h-3.5 text-[#E5A93C] mt-0.5 flex-shrink-0" />
+                <Phone className="w-3.5 h-3.5 text-[#C92227] mt-0.5 flex-shrink-0" />
                 <div className="flex flex-col">
                   <a href="tel:9179304105" className="hover:text-white font-bold text-white">(917) 930-4105</a>
                   <a href="tel:9178611492" className="hover:text-white font-bold text-white">(917) 861-1492</a>
                 </div>
               </li>
               <li className="flex items-center space-x-2">
-                <Mail className="w-3.5 h-3.5 text-[#E5A93C] flex-shrink-0" />
+                <Mail className="w-3.5 h-3.5 text-[#C92227] flex-shrink-0" />
                 <a href="mailto:aawoodflooring22@gmail.com" className="hover:text-white truncate">
                   aawoodflooring22@gmail.com
                 </a>
               </li>
               <li className="flex items-start space-x-2">
-                <MapPin className="w-3.5 h-3.5 text-[#E5A93C] mt-0.5 flex-shrink-0" />
+                <MapPin className="w-3.5 h-3.5 text-[#C92227] mt-0.5 flex-shrink-0" />
                 <span>New York • New Jersey • Connecticut (Meriden CT)</span>
               </li>
               <li className="flex items-start space-x-2">
-                <Clock className="w-3.5 h-3.5 text-[#E5A93C] mt-0.5 flex-shrink-0" />
+                <Clock className="w-3.5 h-3.5 text-[#C92227] mt-0.5 flex-shrink-0" />
                 <span>Mon – Sat: 7:00 AM – 6:00 PM</span>
               </li>
             </ul>
@@ -121,16 +121,16 @@ export const CinematicFooter: React.FC = () => {
 
           <div className="flex items-center space-x-6">
             <span className="flex items-center space-x-1.5 text-gray-400">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#E5A93C]" />
+              <ShieldCheck className="w-3.5 h-3.5 text-[#C92227]" />
               <span>Licensed & Fully Insured Contractor</span>
             </span>
 
             <button
               onClick={scrollToTop}
-              className="flex items-center space-x-1 text-gray-400 hover:text-[#E5A93C] transition-colors"
+              className="flex items-center space-x-1 text-gray-400 hover:text-[#C92227] transition-colors"
             >
               <span>TOP</span>
-              <ArrowUp className="w-3 h-3 text-[#E5A93C]" />
+              <ArrowUp className="w-3 h-3 text-[#C92227]" />
             </button>
           </div>
         </div>

@@ -36,7 +36,7 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({ onOpenQuote }) => 
           className="w-full h-full relative"
         >
           <img
-            src="/images/room-mockup.png"
+            src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=1920&q=80"
             alt="A&A Wood Flooring Luxury Room"
             className="w-full h-full object-cover object-center filter brightness-[0.78] contrast-[1.12]"
           />
@@ -99,16 +99,12 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({ onOpenQuote }) => 
               />
             </motion.div>
 
-            {/* Stylized Under-Title Matching Mockup: "WOOD FLOORING, INC" */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.7 }}
               className="mt-3 text-center lg:text-left"
             >
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-black tracking-widest uppercase text-white/90 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] font-mono">
-                WOOD FLOORING, INC
-              </h2>
               <p className="text-[11px] font-mono font-bold text-[#C92227] tracking-widest uppercase mt-0.5">
                 QUALITY • DESIGN • DURABILITY
               </p>

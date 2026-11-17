@@ -15,6 +15,24 @@ interface CinematicContactProps {
   initialSqft?: number;
 }
 
+const CONTACT_EMAIL = 'aawoodflooring22@gmail.com';
+
+const openMailtoFallback = (data: QuoteFormData) => {
+  const body = [
+    `Name: ${data.fullName}`,
+    `Phone: ${data.phone}`,
+    `Email: ${data.email || '-'}`,
+    `Service: ${data.service}`,
+    `Approx. area (sq ft): ${data.squareFootage || '-'}`,
+    `Location: ${data.location}`,
+    `Property type: ${data.propertyType}`,
+    '',
+    data.message,
+  ].join('\n');
+  const subject = `Estimate request: ${data.fullName}`;
+  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+};
+
 export const CinematicContact: React.FC<CinematicContactProps> = ({
   initialService = 'Hardwood Flooring',
   initialSqft,
@@ -33,6 +51,7 @@ export const CinematicContact: React.FC<CinematicContactProps> = ({
   const [errors, setErrors] = useState<Partial<Record<keyof QuoteFormData, string>>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const validate = (): boolean => {
     const newErrors: Partial<Record<keyof QuoteFormData, string>> = {};
@@ -59,15 +78,33 @@ export const CinematicContact: React.FC<CinematicContactProps> = ({
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setSubmitError(null);
+    const formspreeId = import.meta.env.VITE_FORMSPREE_ID;
+
+    if (!formspreeId) {
+      openMailtoFallback(formData);
       setSubmitted(true);
-    }, 800);
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ ...formData, _subject: `New estimate request: ${formData.fullName}` }),
+      });
+      if (!res.ok) throw new Error(`Formspree responded ${res.status}`);
+      setSubmitted(true);
+    } catch {
+      setSubmitError('We could not send your request. Please call (917) 930-4105 or email aawoodflooring22@gmail.com.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const servicesList = [
@@ -88,7 +125,7 @@ export const CinematicContact: React.FC<CinematicContactProps> = ({
           {/* Left Column: Operational Dispatch Information */}
           <div className="lg:col-span-5 space-y-8">
             <div>
-              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-black/60 border border-[#E5A93C]/40 text-[#E5A93C] text-[11px] font-mono tracking-wider uppercase mb-2">
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-black/60 border border-[#C92227]/40 text-[#C92227] text-[11px] font-mono tracking-wider uppercase mb-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 <span>07 // ACTIVE DISPATCH CONSOLE</span>
               </div>
@@ -103,19 +140,19 @@ export const CinematicContact: React.FC<CinematicContactProps> = ({
             {/* Direct Cards */}
             <div className="space-y-4 font-mono text-xs">
               {/* Phone Lines */}
-              <div className="p-5 rounded-2xl bg-[#121217] border border-white/10 hover:border-[#E5A93C]/40 transition-all">
+              <div className="p-5 rounded-2xl bg-[#121217] border border-white/10 hover:border-[#C92227]/40 transition-all">
                 <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 rounded-xl bg-[#E5A93C]/10 text-[#E5A93C] flex items-center justify-center flex-shrink-0 border border-[#E5A93C]/20">
+                  <div className="w-10 h-10 rounded-xl bg-[#C92227]/10 text-[#C92227] flex items-center justify-center flex-shrink-0 border border-[#C92227]/20">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
                     <p className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">DIRECT HOTLINES</p>
                     <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 text-base font-black text-white mt-1">
-                      <a href="tel:9179304105" className="hover:text-[#E5A93C] transition-colors">
+                      <a href="tel:9179304105" className="hover:text-[#C92227] transition-colors">
                         (917) 930-4105
                       </a>
                       <span className="text-gray-600 hidden sm:inline">|</span>
-                      <a href="tel:9178611492" className="hover:text-[#E5A93C] transition-colors">
+                      <a href="tel:9178611492" className="hover:text-[#C92227] transition-colors">
                         (917) 861-1492
                       </a>
                     </div>
@@ -125,16 +162,16 @@ export const CinematicContact: React.FC<CinematicContactProps> = ({
               </div>
 
               {/* Email */}
-              <div className="p-5 rounded-2xl bg-[#121217] border border-white/10 hover:border-[#E5A93C]/40 transition-all">
+              <div className="p-5 rounded-2xl bg-[#121217] border border-white/10 hover:border-[#C92227]/40 transition-all">
                 <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 rounded-xl bg-[#E5A93C]/10 text-[#E5A93C] flex items-center justify-center flex-shrink-0 border border-[#E5A93C]/20">
+                  <div className="w-10 h-10 rounded-xl bg-[#C92227]/10 text-[#C92227] flex items-center justify-center flex-shrink-0 border border-[#C92227]/20">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
                     <p className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">EMAIL ESTIMATES</p>
                     <a
                       href="mailto:aawoodflooring22@gmail.com"
-                      className="text-sm font-black text-white hover:text-[#E5A93C] transition-colors block mt-1"
+                      className="text-sm font-black text-white hover:text-[#C92227] transition-colors block mt-1"
                     >
                       aawoodflooring22@gmail.com
                     </a>
@@ -146,7 +183,7 @@ export const CinematicContact: React.FC<CinematicContactProps> = ({
               {/* Hours & Coverage */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="p-4 rounded-xl bg-[#121217] border border-white/10">
-                  <div className="flex items-center space-x-2 text-[#E5A93C] mb-1">
+                  <div className="flex items-center space-x-2 text-[#C92227] mb-1">
                     <MapPin className="w-4 h-4" />
                     <span className="text-[10px] uppercase font-bold text-gray-400">REGIONS</span>
                   </div>
@@ -155,7 +192,7 @@ export const CinematicContact: React.FC<CinematicContactProps> = ({
                 </div>
 
                 <div className="p-4 rounded-xl bg-[#121217] border border-white/10">
-                  <div className="flex items-center space-x-2 text-[#E5A93C] mb-1">
+                  <div className="flex items-center space-x-2 text-[#C92227] mb-1">
                     <Clock className="w-4 h-4" />
                     <span className="text-[10px] uppercase font-bold text-gray-400">OPERATING HOURS</span>
                   </div>
@@ -170,7 +207,7 @@ export const CinematicContact: React.FC<CinematicContactProps> = ({
           <div className="lg:col-span-7 bg-[#121217] rounded-3xl p-6 sm:p-10 border border-white/10 shadow-2xl">
             {submitted ? (
               <div className="py-12 text-center space-y-4 max-w-md mx-auto animate-fadeIn font-mono">
-                <div className="w-16 h-16 rounded-full bg-[#E5A93C]/10 text-[#E5A93C] flex items-center justify-center mx-auto border border-[#E5A93C]/30 shadow-lg">
+                <div className="w-16 h-16 rounded-full bg-[#C92227]/10 text-[#C92227] flex items-center justify-center mx-auto border border-[#C92227]/30 shadow-lg">
                   <CheckCircle className="w-8 h-8" />
                 </div>
                 <h3 className="text-2xl font-black text-white">
@@ -183,7 +220,7 @@ export const CinematicContact: React.FC<CinematicContactProps> = ({
                 <div className="pt-4 space-y-2">
                   <a
                     href="tel:9179304105"
-                    className="w-full inline-flex items-center justify-center space-x-2 px-6 py-3.5 rounded-xl bg-[#E5A93C] hover:bg-[#F3C978] text-black font-black text-xs uppercase tracking-wider transition-all"
+                    className="w-full inline-flex items-center justify-center space-x-2 px-6 py-3.5 rounded-xl bg-[#C92227] hover:bg-[#E52228] text-white font-black text-xs uppercase tracking-wider transition-all"
                   >
                     <Phone className="w-4 h-4" />
                     <span>CALL DIRECTLY FOR IMMEDIATE RESPONSE</span>
@@ -222,7 +259,7 @@ export const CinematicContact: React.FC<CinematicContactProps> = ({
 
                 {/* Property Configuration */}
                 <div>
-                  <label className="block text-[10px] font-mono font-bold uppercase tracking-widest text-[#E5A93C] mb-2">
+                  <label className="block text-[10px] font-mono font-bold uppercase tracking-widest text-[#C92227] mb-2">
                     PROPERTY TYPE
                   </label>
                   <div className="grid grid-cols-2 gap-3 font-mono text-xs">
@@ -231,7 +268,7 @@ export const CinematicContact: React.FC<CinematicContactProps> = ({
                       onClick={() => setFormData({ ...formData, propertyType: 'residential' })}
                       className={`py-3 rounded-xl border transition-all ${
                         formData.propertyType === 'residential'
-                          ? 'bg-[#E5A93C] text-black font-black border-[#E5A93C]'
+                          ? 'bg-[#C92227] text-white font-black border-[#C92227]'
                           : 'bg-black/50 text-gray-400 border-white/10 hover:border-white/25'
                       }`}
                     >
@@ -242,7 +279,7 @@ export const CinematicContact: React.FC<CinematicContactProps> = ({
                       onClick={() => setFormData({ ...formData, propertyType: 'commercial' })}
                       className={`py-3 rounded-xl border transition-all ${
                         formData.propertyType === 'commercial'
-                          ? 'bg-[#E5A93C] text-black font-black border-[#E5A93C]'
+                          ? 'bg-[#C92227] text-white font-black border-[#C92227]'
                           : 'bg-black/50 text-gray-400 border-white/10 hover:border-white/25'
                       }`}
                     >
@@ -265,7 +302,7 @@ export const CinematicContact: React.FC<CinematicContactProps> = ({
                         setFormData({ ...formData, fullName: e.target.value });
                         if (errors.fullName) setErrors({ ...errors, fullName: undefined });
                       }}
-                      className={`w-full px-4 py-3 rounded-xl bg-black/60 border text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#E5A93C] ${
+                      className={`w-full px-4 py-3 rounded-xl bg-black/60 border text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#C92227] ${
                         errors.fullName ? 'border-red-500 bg-red-950/20' : 'border-white/10'
                       }`}
                     />
@@ -289,7 +326,7 @@ export const CinematicContact: React.FC<CinematicContactProps> = ({
                         setFormData({ ...formData, phone: e.target.value });
                         if (errors.phone) setErrors({ ...errors, phone: undefined });
                       }}
-                      className={`w-full px-4 py-3 rounded-xl bg-black/60 border text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#E5A93C] ${
+                      className={`w-full px-4 py-3 rounded-xl bg-black/60 border text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#C92227] ${
                         errors.phone ? 'border-red-500 bg-red-950/20' : 'border-white/10'
                       }`}
                     />
@@ -316,7 +353,7 @@ export const CinematicContact: React.FC<CinematicContactProps> = ({
                         setFormData({ ...formData, email: e.target.value });
                         if (errors.email) setErrors({ ...errors, email: undefined });
                       }}
-                      className="w-full px-4 py-3 rounded-xl bg-black/60 border border-white/10 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#E5A93C]"
+                      className="w-full px-4 py-3 rounded-xl bg-black/60 border border-white/10 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#C92227]"
                     />
                   </div>
 
@@ -332,7 +369,7 @@ export const CinematicContact: React.FC<CinematicContactProps> = ({
                         setFormData({ ...formData, location: e.target.value });
                         if (errors.location) setErrors({ ...errors, location: undefined });
                       }}
-                      className={`w-full px-4 py-3 rounded-xl bg-black/60 border text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#E5A93C] ${
+                      className={`w-full px-4 py-3 rounded-xl bg-black/60 border text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#C92227] ${
                         errors.location ? 'border-red-500 bg-red-950/20' : 'border-white/10'
                       }`}
                     />
@@ -354,7 +391,7 @@ export const CinematicContact: React.FC<CinematicContactProps> = ({
                     <select
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-black/60 border border-white/10 text-xs text-white focus:outline-none focus:border-[#E5A93C]"
+                      className="w-full px-4 py-3 rounded-xl bg-black/60 border border-white/10 text-xs text-white focus:outline-none focus:border-[#C92227]"
                     >
                       {servicesList.map((srv, idx) => (
                         <option key={idx} value={srv} className="bg-black">
@@ -373,7 +410,7 @@ export const CinematicContact: React.FC<CinematicContactProps> = ({
                       placeholder="e.g. 1,000 sq ft"
                       value={formData.squareFootage}
                       onChange={(e) => setFormData({ ...formData, squareFootage: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-black/60 border border-white/10 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#E5A93C]"
+                      className="w-full px-4 py-3 rounded-xl bg-black/60 border border-white/10 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#C92227]"
                     />
                   </div>
                 </div>
@@ -388,19 +425,26 @@ export const CinematicContact: React.FC<CinematicContactProps> = ({
                     placeholder="Describe floor condition, preferred wood species, or scheduling needs..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-black/60 border border-white/10 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#E5A93C]"
+                    className="w-full px-4 py-3 rounded-xl bg-black/60 border border-white/10 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#C92227]"
                   />
                 </div>
+
+                {submitError && (
+                  <p role="alert" className="flex items-start space-x-2 text-xs text-red-400">
+                    <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                    <span>{submitError}</span>
+                  </p>
+                )}
 
                 {/* Submit Button */}
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 px-6 rounded-xl text-xs font-mono font-black uppercase tracking-widest text-black bg-[#E5A93C] hover:bg-[#F3C978] shadow-[0_0_25px_rgba(229,169,60,0.35)] transition-all hover:scale-[1.01] active:scale-95 flex items-center justify-center space-x-2"
+                  className="w-full py-4 px-6 rounded-xl text-xs font-mono font-black uppercase tracking-widest text-white bg-[#C92227] hover:bg-[#E52228] shadow-[0_0_25px_rgba(201,34,39,0.35)] transition-all hover:scale-[1.01] active:scale-95 flex items-center justify-center space-x-2"
                 >
                   {isSubmitting ? (
                     <span className="flex items-center space-x-2">
-                      <span className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                      <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
                       <span>DISPATCHING REQUEST...</span>
                     </span>
                   ) : (

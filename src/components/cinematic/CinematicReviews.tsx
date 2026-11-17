@@ -7,8 +7,8 @@ export const CinematicReviews: React.FC = () => {
     <section id="reviews" className="py-24 bg-[#0B0B0E] border-t border-white/5 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-black/60 border border-[#E5A93C]/40 text-[#E5A93C] text-[11px] font-mono tracking-wider uppercase mb-2">
-            <Star className="w-3.5 h-3.5 fill-[#E5A93C]" />
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-black/60 border border-[#C92227]/40 text-[#C92227] text-[11px] font-mono tracking-wider uppercase mb-2">
+            <Star className="w-3.5 h-3.5 fill-[#C92227]" />
             <span>06 // VERIFIED TESTIMONIALS</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
@@ -20,9 +20,9 @@ export const CinematicReviews: React.FC = () => {
 
           {/* Rating Summary Strip */}
           <div className="mt-6 inline-flex items-center space-x-3 px-5 py-2.5 rounded-xl bg-[#121217] border border-white/10 font-mono text-xs">
-            <div className="flex items-center space-x-1 text-[#E5A93C]">
+            <div className="flex items-center space-x-1 text-[#C92227]">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-3.5 h-3.5 fill-[#E5A93C]" />
+                <Star key={i} className="w-3.5 h-3.5 fill-[#C92227]" />
               ))}
             </div>
             <span className="font-bold text-white">5.0 / 5.0 RATING</span>
@@ -36,19 +36,19 @@ export const CinematicReviews: React.FC = () => {
           {reviewsData.slice(0, 3).map((review) => (
             <div
               key={review.id}
-              className="p-7 rounded-2xl bg-[#121217] border border-white/10 hover:border-[#E5A93C]/40 shadow-card-dark transition-all duration-300 flex flex-col justify-between"
+              className="p-7 rounded-2xl bg-[#121217] border border-white/10 hover:border-[#C92227]/40 shadow-card-dark transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-1 text-[#E5A93C]">
+                  <div className="flex items-center space-x-1 text-[#C92227]">
                     {[...Array(review.rating)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-[#E5A93C]" />
+                      <Star key={i} className="w-3.5 h-3.5 fill-[#C92227]" />
                     ))}
                   </div>
                   <span className="text-[11px] font-mono text-gray-500">{review.date}</span>
                 </div>
 
-                <Quote className="w-7 h-7 text-[#E5A93C]/40 mb-3" />
+                <Quote className="w-7 h-7 text-[#C92227]/40 mb-3" />
                 <p className="text-xs sm:text-sm text-gray-300 leading-relaxed italic mb-6 font-light">
                   "{review.comment}"
                 </p>
@@ -64,7 +64,7 @@ export const CinematicReviews: React.FC = () => {
                   </h4>
                   <p className="text-[11px] font-mono text-gray-500">{review.location}</p>
                 </div>
-                <span className="text-[10px] font-mono font-bold text-[#E5A93C] bg-[#E5A93C]/10 border border-[#E5A93C]/30 px-2.5 py-1 rounded-md">
+                <span className="text-[10px] font-mono font-bold text-[#C92227] bg-[#C92227]/10 border border-[#C92227]/30 px-2.5 py-1 rounded-md">
                   {review.projectType}
                 </span>
               </div>

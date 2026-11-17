@@ -57,7 +57,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0B0B0E] text-white font-sans selection:bg-[#E5A93C] selection:text-black">
+    <div className="min-h-screen bg-[#0B0B0E] text-white font-sans selection:bg-[#C92227] selection:text-white">
       {/* Cinematic Top Navigation Bar */}
       <CinematicNavbar
         activeSection={activeSection}

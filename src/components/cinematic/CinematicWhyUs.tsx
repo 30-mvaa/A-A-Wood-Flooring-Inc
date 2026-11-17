@@ -45,7 +45,7 @@ export const CinematicWhyUs: React.FC = () => {
     <section id="why-us" className="py-24 bg-[#0B0B0E] border-t border-white/5 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-black/60 border border-[#E5A93C]/40 text-[#E5A93C] text-[11px] font-mono tracking-wider uppercase mb-2">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-black/60 border border-[#C92227]/40 text-[#C92227] text-[11px] font-mono tracking-wider uppercase mb-2">
             <Sparkles className="w-3.5 h-3.5" />
             <span>08 // WHY CHOOSE A&A WOOD FLOORING</span>
           </div>
@@ -64,11 +64,11 @@ export const CinematicWhyUs: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="p-7 rounded-2xl bg-[#121217] border border-white/10 hover:border-[#E5A93C]/40 shadow-card-dark transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
+                className="p-7 rounded-2xl bg-[#121217] border border-white/10 hover:border-[#C92227]/40 shadow-card-dark transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-black/60 text-[#E5A93C] flex items-center justify-center border border-white/10 group-hover:border-[#E5A93C]/40 transition-colors">
+                    <div className="w-10 h-10 rounded-xl bg-black/60 text-[#C92227] flex items-center justify-center border border-white/10 group-hover:border-[#C92227]/40 transition-colors">
                       <Icon className="w-5 h-5" />
                     </div>
                     <span className="text-[10px] font-mono font-bold text-gray-500 uppercase tracking-widest">
@@ -76,7 +76,7 @@ export const CinematicWhyUs: React.FC = () => {
                     </span>
                   </div>
 
-                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#E5A93C] transition-colors">
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#C92227] transition-colors">
                     {pillar.title}
                   </h3>
                   <p className="text-xs text-gray-400 leading-relaxed font-light">
@@ -84,8 +84,8 @@ export const CinematicWhyUs: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="pt-4 mt-5 border-t border-white/5 flex items-center space-x-2 text-[10px] font-mono font-bold text-[#E5A93C]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#E5A93C]" />
+                <div className="pt-4 mt-5 border-t border-white/5 flex items-center space-x-2 text-[10px] font-mono font-bold text-[#C92227]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C92227]" />
                   <span>A&A QUALITY CRITERIA</span>
                 </div>
               </div>
