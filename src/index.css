@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #0B0B0E;
+    color: #FFFFFF;
+  }
+
+  body {
+    background-color: #0B0B0E;
+    color: #FFFFFF;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #C92227;
+    color: #ffffff;
+  }
+}
+
+@layer utilities {
+  .hud-glass {
+    background: rgba(18, 18, 23, 0.72);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .hud-glass-red {
+    background: rgba(18, 18, 23, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(201, 34, 39, 0.35);
+  }
+
+  .red-glow {
+    box-shadow: 0 0 35px -5px rgba(201, 34, 39, 0.45);
+  }
+
+  .text-gradient-red {
+    background: linear-gradient(135deg, #FF6B6F 0%, #E52228 45%, #AB1B20 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-white {
+    background: linear-gradient(180deg, #FFFFFF 0%, #D4D4DE 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom dark scrollbar with brand red */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0B0E;
+}
+::-webkit-scrollbar-thumb {
+  background: #262633;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C92227;
+}
