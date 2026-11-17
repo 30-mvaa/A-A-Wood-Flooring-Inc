@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X, ChevronLeft, ChevronRight, MapPin, Tag } from 'lucide-react';
 import { GalleryItem } from '../types';
 
@@ -41,7 +42,7 @@ export const Lightbox: React.FC<LightboxProps> = ({ item, items, onClose, onSele
     onSelect(items[prevIdx]);
   };
 
-  return (
+  return createPortal(
     <div className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-md flex flex-col justify-between p-4 sm:p-6 animate-fadeIn">
       {/* Top Bar */}
       <div className="flex items-center justify-between text-white max-w-7xl w-full mx-auto pb-4">
@@ -110,6 +111,7 @@ export const Lightbox: React.FC<LightboxProps> = ({ item, items, onClose, onSele
           {currentIndex + 1} of {items.length}
         </span>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 };
