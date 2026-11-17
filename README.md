@@ -98,7 +98,6 @@ sitio-web-aawood-floring/
 │   ├── sitemap.xml              # XML Sitemap
 │   └── images/
 │       ├── logo.png             # Authentic logo with transparent background
-│       ├── logo-original.png    # Original cropped logo
 │       ├── flyer.png            # Original authentic marketing flyer
 │       └── hero-herringbone.png # High-res herringbone wood floor photography
 └── src/
@@ -111,20 +110,11 @@ sitio-web-aawood-floring/
     │   ├── gallery.ts           # Project portfolio items & wood species
     │   └── reviews.ts           # Customer testimonials & verified ratings
     └── components/
-        ├── Navbar.tsx           # Sticky frosted-glass navigation & mobile drawer
-        ├── Hero.tsx             # Cinematic hero section with direct phone numbers
-        ├── CostEstimator.tsx    # Interactive project budget slider
-        ├── Services.tsx         # 8 service cards with category filters
-        ├── ServiceModal.tsx     # Deep-dive service modal with 5-step process
-        ├── BeforeAfterSlider.tsx# Draggable before/after restoration slider
-        ├── About.tsx            # Editorial storytelling & credentials
-        ├── WhyChooseUs.tsx      # Apple-style bento grid
-        ├── Gallery.tsx          # Filterable project portfolio
+        ├── cinematic/           # Live page sections (Navbar, Hero, Services, Estimator,
+        │                        # BeforeAfter, Gallery, About, WhyUs, Reviews, Coverage,
+        │                        # Contact, Footer)
         ├── Lightbox.tsx         # Full-screen image lightbox modal
-        ├── Reviews.tsx          # 5-star testimonials & carousel
-        ├── ServiceAreas.tsx     # NY, NJ & CT coverage breakdown
-        ├── ContactForm.tsx      # Validated quote request form
-        ├── Footer.tsx           # Corporate footer with logo & social links
+        ├── ServiceModal.tsx     # Service "Read More" modal
         └── FloatingCallButton.tsx # One-click dial button
 ```
 
